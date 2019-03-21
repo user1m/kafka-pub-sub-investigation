@@ -1,6 +1,6 @@
 // var mosca = require('mosca');
 var mosca = require('@conduitvc/mosca');
-var ascoltatore = require('./settings.js');
+var ascoltatore = require('./settings.js/index.js');
 
 // var ascoltatore = {
 //   //using ascoltatore

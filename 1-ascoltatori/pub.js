@@ -1,5 +1,5 @@
 var ascoltatori = require('ascoltatori');
-var settings = require('./settings.js');
+var settings = require('./settings.js/index.js');
 
 ascoltatori.build(settings, function (err, ascoltatore) {
     // publishes a message to the topic 'hello'
