@@ -1,7 +1,11 @@
 ## Kafka Pub Sub investigation
 
 
-###[View My Investigation Notes](https://docs.google.com/document/d/1bZTmptNwvpv9Y_OMYtILUUnGrD8rsJ3rvbO0nA9bRDA/edit?usp=sharing)
+### [View My Investigation Notes](https://docs.google.com/document/d/1bZTmptNwvpv9Y_OMYtILUUnGrD8rsJ3rvbO0nA9bRDA/edit?usp=sharing)
+
+## Requirements
+* [kafka](https://github.com/wurstmeister/kafka-docker)
+* mongo (optional - but needed to test [mosca-server-persistance.js](https://github.com/User1m/kafka-pub-sub-investigation/blob/master/1-ascoltatori/mosca-server-persistance.js))
 
 ## Repo/Folder structure
 
