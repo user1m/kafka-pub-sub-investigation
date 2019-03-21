@@ -1,17 +1,11 @@
 var ascoltatori = require('ascoltatori');
-var settings = {
-    type: 'kafka',
-    json: false,
-    kafka: require("kafka-node"),
-    connectionString: "localhost:2181",
-    clientId: "ascoltatori",
-    groupId: "ascoltatori",
-    defaultEncoding: "utf8",
-    encodings: {
-        image: "buffer"
-    }
-};
+var settings = require('./settings.js');
 
 ascoltatori.build(settings, function (err, ascoltatore) {
-    // ...
+
+    // subscribes to a topic
+    ascoltatore.subscribe('hello', function () {
+        console.log(arguments);
+        // { '0': 'hello', '1': 'a message' }
+    });
 });

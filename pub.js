@@ -1,17 +1,10 @@
 var ascoltatori = require('ascoltatori');
-var settings = {
-    type: 'kafka',
-    json: false,
-    kafka: require("kafka-node"),
-    connectionString: "localhost:2181",
-    clientId: "ascoltatori",
-    groupId: "ascoltatori",
-    defaultEncoding: "utf8",
-    encodings: {
-        image: "buffer"
-    }
-};
+var settings = require('./settings.js');
 
 ascoltatori.build(settings, function (err, ascoltatore) {
-    // ...
+    // publishes a message to the topic 'hello'
+    ascoltatore.publish('hello', 'a message', function () {
+        console.log('message published');
+        process.exit(1);
+    });
 });
