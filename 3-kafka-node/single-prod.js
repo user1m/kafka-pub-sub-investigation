@@ -1,7 +1,7 @@
 var kafka = require('kafka-node'),
     Producer = kafka.Producer,
     KeyedMessage = kafka.KeyedMessage,
-    client = new kafka.KafkaClient(),
+    client = new kafka.KafkaClient({ kafkaHost: 'localhost:9092' }),
     producer = new Producer(client),
     // km = new KeyedMessage('key', 'message'),
     payloads = [
@@ -12,7 +12,10 @@ var kafka = require('kafka-node'),
 
 producer.on('ready', function () {
     setInterval(() => {
-        producer.send([{ topic: 'hello', messages: `The time is: ${new Date().toISOString()}`, partition: 0, key: accountID }], function (err, data) {
+        producer.send([
+            { topic: 'hello', messages: `The time is: ${new Date().toISOString()}`, partition: 0, key: accountID },
+            // { topic: uuid('property-importer'), messages: `The time is: ${new Date().toISOString()}`, partition: 0, key: accountID }
+        ], function (err, data) {
             console.log(data);
             // process.exit(0);
         });

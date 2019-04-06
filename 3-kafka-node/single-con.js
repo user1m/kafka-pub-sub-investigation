@@ -4,7 +4,7 @@
 
 var kafka = require('kafka-node'),
     Consumer = kafka.Consumer,
-    client = new kafka.KafkaClient(),
+    client = new kafka.KafkaClient({ kafkaHost: 'localhost:9092' }),
     consumer = new Consumer(
         client,
         [
@@ -12,9 +12,11 @@ var kafka = require('kafka-node'),
         ],
         {
             autoCommit: false,
-            fromOffset: 'latest'
+            fromOffset: true
+            // fromOffset: 'latest'
         }
-    );
+    ),
+    uuid = require('uuid-by-string');
 
 consumer.on('message', function (message) {
     console.log(message);
@@ -26,7 +28,8 @@ consumer.on('message', function (message) {
 });
 
 consumer.addTopics([
-    { topic: 'hello', partition: 0, offset: 0 }
+    { topic: 'hello', partition: 0, offset: 0 },
+    // { topic: uuid('property-importer'), partition: 0, offset: 0 }
 ], () => console.log("topic added"));
 
 consumer.on('error', function (err) {
