@@ -14,9 +14,8 @@ var kafka = require('kafka-node'),
             autoCommit: false,
             fromOffset: true
             // fromOffset: 'latest'
-        }
-    ),
-    uuid = require('uuid-by-string');
+        });
+// uuid = require('uuid-by-string');
 
 consumer.on('message', function (message) {
     console.log(message);
@@ -28,7 +27,8 @@ consumer.on('message', function (message) {
 });
 
 consumer.addTopics([
-    { topic: 'hello', partition: 0, offset: 0 },
+    'hello'
+    // { topic: 'hello', partition: 0, offset: 0 },
     // { topic: uuid('property-importer'), partition: 0, offset: 0 }
 ], () => console.log("topic added"));
 

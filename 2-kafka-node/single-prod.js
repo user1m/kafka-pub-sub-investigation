@@ -1,12 +1,12 @@
 var kafka = require('kafka-node'),
     Producer = kafka.Producer,
-    KeyedMessage = kafka.KeyedMessage,
+    // KeyedMessage = kafka.KeyedMessage,
     client = new kafka.KafkaClient({ kafkaHost: 'localhost:9092' }),
     producer = new Producer(client),
     // km = new KeyedMessage('key', 'message'),
-    payloads = [
-        // { topic: 'bertrandszoghytopic', messages: 'fifth color is green', partition: 0 }
-    ],
+    // payloads = [
+    //     // { topic: 'bertrandszoghytopic', messages: 'fifth color is green', partition: 0 }
+    // ],
     uuid = require('uuid-by-string'),
     accountID = uuid("account-service");
 
